@@ -470,6 +470,11 @@ Please analyze this document and extract all structured fields.`;
 async function startServer() {
   const isDev = process.env.NODE_ENV !== 'production';
 
+  // Redirect root to /pdm-google-app/
+  app.get('/', (req, res) => {
+    res.redirect('/pdm-google-app/');
+  });
+
   if (isDev) {
     const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
@@ -479,6 +484,7 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(__dirname, 'dist');
+    app.use('/pdm-google-app', express.static(distPath));
     app.use(express.static(distPath));
     app.get('*', (req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
@@ -486,7 +492,7 @@ async function startServer() {
   }
 
   app.listen(Number(PORT), '0.0.0.0', () => {
-    console.log(`VaultAI Server running on http://0.0.0.0:${PORT}`);
+    console.log(`PDM Google Server running on http://0.0.0.0:${PORT}`);
   });
 }
 
