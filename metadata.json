@@ -1,0 +1,6 @@
+{
+  "name": "VaultAI - স্মার্ট এনক্রিপ্টেড ডকুমেন্ট ভল্ট ও এআই",
+  "description": "ভয়েস ও এআই চালিত পার্সোনাল ডকুমেন্ট ভল্ট। মিলিটারি-গ্রেড AES-256 এনক্রিপশন, তাৎক্ষণিক ভয়েস অনুসন্ধান এবং প্রিমিয়াম সাবস্ক্রিপশন সুবিধা।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
